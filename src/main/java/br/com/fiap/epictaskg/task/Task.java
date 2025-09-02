@@ -1,9 +1,7 @@
 package br.com.fiap.epictaskg.task;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import br.com.fiap.epictaskg.user.User;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,5 +30,8 @@ public class Task {
 
     @Min(0) @Max(100)
     private int status;
+
+    @ManyToOne
+    private User user;
 
 }
