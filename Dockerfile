@@ -8,7 +8,7 @@ COPY gradle gradle
 RUN gradle clean build -x test --no-daemon || return 0
 
 # Copia o código fonte e faz o build
-COPY . .
+COPY src .
 RUN gradle clean build -x test --no-daemon
 
 # Etapa 2: imagem final
