@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN gradle clean build --no-daemon
+RUN gradle bootJar --no-daemon
 
 # Etapa 2: imagem final
 FROM eclipse-temurin:17-jdk
