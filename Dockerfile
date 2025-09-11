@@ -2,14 +2,9 @@
 FROM gradle:8.10-jdk17 AS builder
 WORKDIR /app
 
-# Copia os arquivos de build
-COPY build.gradle settings.gradle ./
-COPY gradle gradle
-RUN gradle clean build -x test --no-daemon || return 0
+COPY . .
 
-# Copia o código fonte e faz o build
-COPY src .
-RUN gradle clean build -x test --no-daemon
+RUN gradle clean build --no-daemon
 
 # Etapa 2: imagem final
 FROM eclipse-temurin:17-jdk
